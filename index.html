@@ -609,14 +609,7 @@
 
     // ─ Send to Google Apps Script ─
     // ⚠️  REMPLACER par votre URL Apps Script après déploiement
-    const SCRIPT_URL = 'VOTRE_URL_APPS_SCRIPT_ICI';
-
-    if (SCRIPT_URL === 'VOTRE_URL_APPS_SCRIPT_ICI') {
-      // Mode démo — simule l'envoi
-      await new Promise(r => setTimeout(r, 1800));
-      document.getElementById('successOverlay').classList.add('show');
-      return;
-    }
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxnsCNkMhdEIpGhcJGxEKhK3I-RWFWii4FdXj2zMczcVTBAwtVgVksLTCia8zN8Opi4Xw/exec';
 
     try {
       await fetch(SCRIPT_URL, { method: 'POST', body: data, mode: 'no-cors' });
