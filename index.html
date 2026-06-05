@@ -355,11 +355,20 @@
     params.append('tjm',           document.getElementById('tjm').value.trim());
     params.append('societe',       document.querySelector('input[name=societe]:checked').value);
 
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxT5-HOOloJ6KZHiL98Mw4t2UZwKYX4e5z3gpasy0VsZ6CJ-nOKVaSqEKcpTxIsAR1XKA/exec';
+    const SCRIPT_URL = 'https://formspree.io/f/xkoaogkl';
    try {
-      const url = SCRIPT_URL + '?' + params.toString();
-      await fetch(url, { method: 'GET', mode: 'no-cors' });
-      document.getElementById('successOverlay').classList.add('show');
+      const response = await fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
+      if (response.ok) {
+        document.getElementById('successOverlay').classList.add('show');
+      } else {
+        alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+        btn.classList.remove('loading');
+        btn.querySelector('span').textContent = 'Envoyer mon profil';
+      }
     } catch (err) {
       alert('Erreur lors de l\'envoi. Veuillez réessayer.');
       btn.classList.remove('loading');
