@@ -355,7 +355,7 @@
     params.append('tjm',           document.getElementById('tjm').value.trim());
     params.append('societe',       document.querySelector('input[name=societe]:checked').value);
 
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzLDaSTJFkfOqL9RfM599WXQl5q3MVKZ2sB63cCCVFq5C4dXaDQpmNXXqMXbz_7lS2M4g/exec';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxlBUVimcl_T2tHb1-MiCQIqupuqzr779VwTrk2jc-nbCswQmNthOrE__v3OrgQMeeDaw/exec';
    try {
       const url = SCRIPT_URL + '?' + params.toString();
       await fetch(url, { method: 'GET', mode: 'no-cors' });
